@@ -1,5 +1,19 @@
 import React from "react";
+import { useState, useEffect } from 'react'
+
 function Categories() {
+
+    const [categories, setCategories] = useState([]);
+    useEffect(async () => {
+       await fetch('http://localhost:3001/api/apiCategorias')
+            .then(response => response.json())
+            .then(data => {
+                setCategories (data.data.category)
+            })
+            .catch(error => console.error(error))
+        console.log(categories);
+           
+    }, []);
     return (
         <div class="col-lg-6 mb-4">						
             <div class="card shadow mb-4">
@@ -8,49 +22,21 @@ function Categories() {
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-lg-6 mb-4">
-                            <div class="card bg-info text-white shadow">
-                                <div class="card-body">
-                                    Category 01
+                        {categories.length === 0 && <p>Cargando</p>}
+                        {categories.map((category, i) => {
+                            return (
+                                <div key={i} class="col-lg-6 mb-4">
+                                    <div class="card bg-info text-white shadow">
+                                        <div class="card-body">
+                                            {category.category}
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 mb-4">
-                            <div class="card bg-info text-white shadow">
-                                <div class="card-body">
-                                    Category 02
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 mb-4">
-                            <div class="card bg-info text-white shadow">
-                                <div class="card-body">
-                                    Category 03
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 mb-4">
-                            <div class="card bg-info text-white shadow">
-                                <div class="card-body">
-                                    Category 04
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 mb-4">
-                            <div class="card bg-info text-white shadow">
-                                <div class="card-body">
-                                    Category 05
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 mb-4">
-                            <div class="card bg-info text-white shadow">
-                                <div class="card-body">
-                                    Category 06
-                                </div>
-                            </div>
-                        </div>
+                                )
+                            }) 
+                        }
                     </div>
+                    
                 </div>
             </div>
         </div>
