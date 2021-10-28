@@ -15,19 +15,19 @@ function Categories() {
            
     }, []);
     return (
-        <div class="col-lg-6 mb-4">						
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Categories in Data Base</h6>
+        <div className="col-lg-6 mb-4">						
+            <div className="card shadow mb-4">
+                <div className="card-header py-3">
+                    <h6 className="m-0 font-weight-bold text-primary">Categorías en Base de Datos</h6>
                 </div>
-                <div class="card-body">
-                    <div class="row">
+                <div className="card-body">
+                    <div className="row">
                         {categories.length === 0 && <p>Cargando</p>}
                         {categories.map((category, i) => {
                             return (
-                                <div key={i} class="col-lg-6 mb-4">
-                                    <div class="card bg-info text-white shadow">
-                                        <div class="card-body">
+                                <div key={i} className="col-lg-6 mb-4">
+                                    <div className="card bg-info text-white shadow">
+                                        <div className="card-body">
                                             {category.category}
                                         </div>
                                     </div>

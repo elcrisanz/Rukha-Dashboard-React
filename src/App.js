@@ -8,6 +8,7 @@ import Totalusers from './components/Totalusers';
 import Lastproduct from './components/Lastproduct';
 import Categories from './components/Categories';
 
+
 function App() {
   return (
     <div id="wrapper">
