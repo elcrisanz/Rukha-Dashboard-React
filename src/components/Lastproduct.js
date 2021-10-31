@@ -22,7 +22,7 @@ function Lastproduct() {
           <div className="card-body">
             <h4>{products.name} </h4>
             <div className="text-center">
-              <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" src={"http://localhost:3001/img/"+products.image} alt="pepe" />
+              <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" src={"http://localhost:3001/img/"+products.image} alt="product-image" width="300px"/>
             </div>
             <a href={"http://localhost:3001/products/detalle/" + products.id}>Ver producto en detalle</a>
           </div>
